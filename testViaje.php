@@ -26,13 +26,13 @@ while ($opcion != 4) {
             //Pide los datos del viaje que desea cargar al sistema y le deja como clave el código
             echo "\nIngrese el código del viaje: ";
             $codigo = trim(fgets(STDIN));
+
             echo "\nIngrese el destino del viaje: ";
             $destino = trim(fgets(STDIN));
             echo "\nIngrese capacidad maxíma de pasajeros: ";
             $maxPasajeros = trim(fgets(STDIN));
             $viaje = new Viajes($codigo, $destino, $maxPasajeros);
-            $listaViajes[$viaje->__getCodigo()] = $viaje;
-
+            $listaViajes[$viaje->codigo] = $viaje;
             echo "\nViaje cargado con éxito.\n";
             break;
         case 2:
@@ -40,9 +40,10 @@ while ($opcion != 4) {
             do {
                 echo "\nIngresar el código del viaje a modificar: ";
                 $codigo = trim(fgets(STDIN));
-                foreach ($listaViajes as $viaje->$codigo) {
+                foreach ($listaViajes as $viaje){
                     //Si el viaje existe, despliega el menú con todas las opciones para modificar los datos del viaje.
-                    if ($codigo == $viaje->codigo) {
+                    if ($codigo == $viaje->__getCodigo()) {
+                        $encontrado = true;
                         echo "\n1. Código del viaje: \n";
                         echo "2. Destino del viaje: \n";
                         echo "3. Capacidad máxima del viaje: \n";
@@ -128,10 +129,10 @@ while ($opcion != 4) {
                             case 7:
                                 break;
                         }
-                    } elseif ($codigo != $viaje->codigo) {
-                        echo "\nNo se encontró ningun viaje con el código " . $codigo . "\n";
-                        break;
                     }
+                }
+                if(!$encontrado) {
+                    echo "\nNo se encontró ningun viaje con el código " . $codigo . "\n ";
                 }
             } while ($opcionModificar = !7);
             break;
@@ -141,10 +142,12 @@ while ($opcion != 4) {
             //Comprueba que exista el viaje del que se desea ver la información y luego retorna la información del viaje.
             foreach ($listaViajes as $viaje) {
                 if ($codigo == $viaje->codigo) {
+                    $encontrado = true;
                     echo $viaje->__toString();
-                } elseif ($codigo != $viaje->codigo) {
-                    echo "\nNo se encontró ningun viaje con el código " . $codigo . "\n ";
                 }
+            }
+            if(!$encontrado) {
+                echo "\nNo se encontró ningun viaje con el código asfasf " . $codigo . "\n ";
             }
             break;
         case 4:

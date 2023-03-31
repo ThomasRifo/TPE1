@@ -64,7 +64,7 @@ class Viajes {
         $pasajeroExiste = false;
         for($i = 0; $i < count($array->pasajeros); $i++){
             //if($array->pasajeros[$i]["documento"] == $documento){ FORMA ANTERIOR DE LA CONDICION
-                if($array->__existePasajero){
+                if($array->__existePasajero($array, $documento)){
                 array_splice($array->pasajeros, $i, 1);
                 break;
                 $pasajeroExiste = true;

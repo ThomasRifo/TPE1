@@ -66,7 +66,7 @@ while ($opcion != 4) {
                                 echo "\nEl nuevo destino del viaje " . $codigo . " es: " . $viaje->__getDestino() . "\n";
                                 break;
                             case 3:  //CAMBIAR CAPACIDAD MAXIMA
-                                echo "I\nngresar la nueva capacidad máxima: \n";
+                                echo "\nIngresar la nueva capacidad máxima: \n";
                                 $nuevaCapacidad = trim(fgets(STDIN));
                                 $listaViajes[$codigo]->__setMaxPasajeros($nuevaCapacidad);
                                 echo "\nLa nueva capacidad máxima del viaje " . $codigo . " es : " . $viaje->__getMaxPasajeros() . "\n";
@@ -101,7 +101,7 @@ while ($opcion != 4) {
                                 //Verifica si el pasajero se encuentra en el viaje, si se encuentra procede a eliminarlo.
                                 if ($existePasajero) {
                                     $listaViajes[$codigo]->__eliminarPasajero($listaViajes[$codigo], $documento);
-                                    echo "\nEl pasajero fue eliminado del viaje correctamente.n";
+                                    echo "\nEl pasajero fue eliminado del viaje correctamente.\n";
                                 } else {
                                     echo "\nEl pasajero no se encuentra dentro del viaje " . $codigo . "\n";
                                 }
@@ -128,7 +128,7 @@ while ($opcion != 4) {
                             case 7:
                                 break;
                         }
-                    } elseif ($codigo = !$viaje->codigo) {
+                    } elseif ($codigo != $viaje->codigo) {
                         echo "\nNo se encontró ningun viaje con el código " . $codigo . "\n";
                         break;
                     }

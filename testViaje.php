@@ -143,7 +143,7 @@ while ($opcion != 4) {
                 if ($codigo == $viaje->codigo) {
                     echo $viaje->__toString();
                 } elseif ($codigo != $viaje->codigo) {
-                    echo "\nNo se encontró ningun viaje con el código " . $codigo . "\n";
+                    echo "\nNo se encontró ningun viaje con el código " . $codigo . "\n ";
                 }
             }
             break;

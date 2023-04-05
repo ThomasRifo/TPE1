@@ -57,7 +57,7 @@ while ($opcion != 4) {
                             case 1: //CAMBIAR CODIGO
                                 echo "\nIngresar el nuevo código de viaje: \n";
                                 $nuevoCodigo = trim(fgets(STDIN));
-                                $listaViajes[$codigo]->__setCodigo($nuevoCodigo);
+                                $viaje->__setCodigo($nuevoCodigo);
                                 echo "\nEl nuevo código de viaje es: " . $viaje->__getCodigo() . "\n";
                                 break;
                             case 2: //CAMBIAR DESTINO
